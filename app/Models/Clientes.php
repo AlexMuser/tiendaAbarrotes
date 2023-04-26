@@ -9,7 +9,7 @@ class Clientes extends Model
 {
     protected $table = 'clientes';
 
-    protected $fillable = ['nombre','ap_pat','ap_mat','telefono','direccion','estadoPago','status'];
+    protected $fillable = ['nombre','ap_pat','ap_mat','telefono','direccion','estadoPago','id_tienda','status'];
 
     public function tiendas(){
         return $this-> belongsTo('App\Models\Tiendas','id_tienda','id');
