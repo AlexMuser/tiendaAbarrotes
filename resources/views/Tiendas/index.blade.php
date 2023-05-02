@@ -27,6 +27,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">Tiendas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/usuarios') }}">Usuarios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Proveedores</a></li>
                 </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Salir</a>
             </div>

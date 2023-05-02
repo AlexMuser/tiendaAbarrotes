@@ -4,20 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Clientes;
+use App\Models\Usuarios;
 use App\Models\Tiendas;
+use App\Models\Tipo_usuarios;
 
-class ClientesController extends Controller
+class UsuariosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $clientes = Clientes::where('status', 1)
+        $usuarios = Usuarios::where('status', 1)
                   ->orderBy('id')->get(); 
 
-        return view('Clientes.index')->with('clientes', $clientes);
+        return view('Usuarios.index')->with('usuarios', $usuarios);
     }
 
     /**
@@ -27,8 +28,11 @@ class ClientesController extends Controller
     {
         $tiendas = Tiendas::select('id','nombre')
                   ->orderBy('nombre')->get();
-        return view('Clientes.create')
-                ->with('tiendas',$tiendas);
+        $tipo_usuarios = Tipo_usuarios::select('id','nombre')
+                  ->orderBy('nombre')->get();
+        return view('Usuarios.create')
+                ->with('tiendas',$tiendas)
+                ->with('tipo_usuarios',$tipo_usuarios);
     }
 
     /**
@@ -38,24 +42,22 @@ class ClientesController extends Controller
     {
         $datos = $request->all();
 
+        $datos['password'] = bcrypt($datos['password']);
+
         $datos['id_tienda'] = intval($datos['id_tienda']);
 
         $validatedData = $request->validate([
-            'nombre' => 'required|unique:clientes,nombre,NULL,id,id_tienda,'.$datos['id_tienda'].',status,1',
-            'ap_pat' => 'required',
-            'ap_mat' => 'required',
-            'id_tienda' => 'required',
+            'username' => 'required|unique:usuarios,username,NULL,id,status,1',
         ], [
-            'nombre.unique' => 'El cliente con ese nombre ya se encuentra registrado en la tienda seleccionada',
+            'username.unique' => 'El usuario ya se encuentra registrado',
         ]);
 
-        $datos['estadoPago'] = 'Acreditado';
         $datos['status'] = "1";
 
         //dd($datos);
 
-        Clientes::create($datos);
-        return redirect('/clientes');
+        Usuarios::create($datos);
+        return redirect('/usuarios');
     }
 
     /**
@@ -71,12 +73,15 @@ class ClientesController extends Controller
      */
     public function edit(string $id)
     {
-        $cliente = Clientes::find($id);
+        $usuario = Usuarios::find($id);
         $tiendas = Tiendas::select('id','nombre')
                   ->orderBy('nombre')->get();
-        return view('Clientes.edit')
-               ->with('cliente', $cliente)
-               ->with('tiendas',$tiendas);
+        $tipo_usuarios = Tipo_usuarios::select('id','nombre')
+                  ->orderBy('nombre')->get();
+        return view('Usuarios.edit')
+               ->with('usuario', $usuario)
+               ->with('tiendas',$tiendas)
+               ->with('tipo_usuarios',$tipo_usuarios);
     }
 
     /**
@@ -86,14 +91,19 @@ class ClientesController extends Controller
     {
         $datos = $request->all();
 
-        $datos['estadoPago'] = 'Acreditado';
+        $datos['password'] = bcrypt($datos['password']);
+
+        $datos['id_tienda'] = intval($datos['id_tienda']);
+
         $datos['status'] = "1";
 
-        $cliente = Clientes::find($id);
+        //dd($datos);
 
-        $cliente->update($datos);
+        $usuario = Usuarios::find($id);
 
-        return redirect('/clientes');
+        $usuario->update($datos);
+        
+        return redirect('/usuarios');
     }
 
     /**
@@ -106,9 +116,9 @@ class ClientesController extends Controller
         //$cliente->destroy($id);
         
         //Borrado lógico
-        $cliente = Clientes::find($id);
-        $cliente->status = 0;
-        $cliente->save();
-        return redirect('/clientes');
+        $usuario = Usuarios::find($id);
+        $usuario->status = 0;
+        $usuario->save();
+        return redirect('/usuarios');
     }
 }
