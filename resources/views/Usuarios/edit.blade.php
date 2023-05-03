@@ -44,15 +44,15 @@
                     <label class="form-label" for="tienda">Tienda</label>
                     <select class="form-select states order-alpha" id="tienda" name="id_tienda" required="">
                         @foreach($tiendas as $tienda)
-                        <option value="{{ $tienda->id }}" @if($tienda->id == $usuario->id_tienda) selected @endif>{{ $tienda->nombre }}</option>
+                            <option value="{{ $tienda->id }}" @if($tienda->id == $usuario->id_tienda) selected @endif>{{ $tienda->nombre }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group mb-3">
-                    <label class="form-label" for="tienda">Tipo de usuario</label>
-                    <select class="form-select states order-alpha" id="tienda" name="id_tipo_usu" required="">
+                    <label class="form-label" for="usuario">Tipo de usuario</label>
+                    <select class="form-select states order-alpha" id="usuario" name="id_tipo_usu" required="">
                         @foreach($tipo_usuarios as $tipo_usuario)
-                            <option value="{{ $tipo_usuario->id }}">{{ $tipo_usuario->nombre }}</option>
+                            <option value="{{ $tipo_usuario->id }}" @if($tipo_usuario->id == $usuario->id_tipo_usu) selected @endif>{{ $tipo_usuario->nombre }}</option>
                         @endforeach
                     </select>
                 </div>

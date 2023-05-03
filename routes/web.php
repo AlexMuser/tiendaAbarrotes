@@ -18,11 +18,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::resource('tiendas', TiendasController::class);
+Route::middleware(['auth', 'role:1'])->group(function () {
+    Route::resource('tiendas', TiendasController::class);
+    Route::resource('usuarios', UsuariosController::class);
+});
 
-Route::resource('clientes', ClientesController::class);
-
-Route::resource('usuarios', UsuariosController::class);
+Route::middleware(['auth', 'role:2'])->group(function () {
+    Route::resource('clientes', ClientesController::class);
+});
 
 // Rutas agregadas para realizar la aunteticación
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');

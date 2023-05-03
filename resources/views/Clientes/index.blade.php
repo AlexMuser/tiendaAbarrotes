@@ -22,16 +22,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-md py-3">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span>Consultas</span></a><button data-bs-toggle="collapse" data-bs-target="#navcol-2" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-2">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Clientes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Ventas</a></li>
-                </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Salir</a>
-            </div>
-        </div>
-    </nav>
+    @include('includes.navbarVend')
     <div class="container-fluid" style="margin-top: 28px;width: 1255.6px;">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-6">
