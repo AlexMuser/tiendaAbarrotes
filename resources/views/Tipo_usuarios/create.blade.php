@@ -34,26 +34,15 @@
     <section class="clean-block clean-form dark h-100">
         <div class="container" style="margin-top: -59px;">
             <div class="block-heading" style="padding-top: 0px;">
-                <h2 class="text-primary" style="margin-top: 100px;">Registrar clientes</h2>
+                <h2 class="text-primary" style="margin-top: 100px;">Registrar tipo de usuarios</h2>
                 <p>Realiza el registro llenando los siguientes datos</p>
             </div>
-            {!! Form::open(['url'=>'/clientes']) !!}
-                <div class="form-group mb-3">{!! Form::label ('ap_pat','Apellido Paterno', ['class' => 'form-label']) !!}{!! Form::text('ap_pat', null, ['class' => 'form-control', 'placeholder' => 'Ingresa apellido paterno', 'required' => 'required', 'title' => 'Debes ingresar el apellido paterno']) !!}</div>
-                <div class="form-group mb-3">{!! Form::label ('ap_mat','Apellido Materno', ['class' => 'form-label']) !!}{!! Form::text('ap_mat', null, ['class' => 'form-control', 'placeholder' => 'Ingresa apellido materno', 'required' => 'required', 'title' => 'Debes ingresar el apellido materno']) !!}</div>
+            {!! Form::open(['url'=>'/tipo_usuarios']) !!}
                 <div class="form-group mb-3">{!! Form::label ('nombre','Nombre', ['class' => 'form-label']) !!}{!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el nombre', 'required' => 'required', 'title' => 'Debes ingresar el nombre']) !!}</div>
-                <div class="form-group mb-3">{!! Form::label ('telefono','Teléfono', ['class' => 'form-label']) !!}{!! Form::tel('telefono', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el teléfono', 'required' => 'required', 'title' => 'Debes de ingresar un numero de teléfono']) !!}</div>
-                <div class="form-group mb-3">{!! Form::label ('direccion','Dirección', ['class' => 'form-label']) !!}{!! Form::text('direccion', null, ['class' => 'form-control', 'placeholder' => 'Ingresa la dirección', 'required' => 'required', 'title' => 'Debes de ingresar una dirección']) !!}</div>
-                <div class="form-group mb-3">
-                    <label class="form-label" for="tienda">Tienda</label>
-                    <select class="form-select states order-alpha" id="tienda" name="id_tienda" required="">
-                        @foreach($tiendas as $tienda)
-                            <option value="{{ $tienda->id }}">{{ $tienda->nombre }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                <div class="form-group mb-3">{!! Form::label ('cargo','Cargo', ['class' => 'form-label']) !!}{!! Form::text('cargo', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el cargo', 'required' => 'required', 'title' => 'Debes ingresar el cargo']) !!}</div>
                 <hr style="margin-top: 30px;margin-bottom: 10px;">
-                <div class="form-group mb-3">&nbsp;{!! Form::submit('Guardar cliente', ['class' => 'btn btn-primary d-block w-100']) !!}</div>
-                <a href="{{ url('/clientes') }}" class="btn btn-primary d-block w-100" style="background: rgb(237,38,38);">Cancelar</a>
+                <div class="form-group mb-3">&nbsp;{!! Form::submit('Guardar tipo de usuario', ['class' => 'btn btn-primary d-block w-100']) !!}</div>    
+                <a href="{{ url('/tipo_usuarios') }}" class="btn btn-primary d-block w-100" style="background: rgb(237,38,38);">Cancelar</a>
             {!! Form::close() !!}
         </div>
     </section>

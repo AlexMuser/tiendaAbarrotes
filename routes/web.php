@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TiendasController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\Tipo_usuariosController;
 use App\Http\Controllers\AuthController;
 
 
@@ -21,6 +23,8 @@ use App\Http\Controllers\AuthController;
 Route::middleware(['auth', 'role:1'])->group(function () {
     Route::resource('tiendas', TiendasController::class);
     Route::resource('usuarios', UsuariosController::class);
+    Route::resource('categorias', CategoriasController::class);
+    Route::resource('tipo_usuarios', Tipo_usuariosController::class);
 });
 
 Route::middleware(['auth', 'role:2'])->group(function () {

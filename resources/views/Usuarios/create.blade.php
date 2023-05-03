@@ -35,7 +35,7 @@
         <div class="container" style="margin-top: -59px;">
             <div class="block-heading" style="padding-top: 0px;">
                 <h2 class="text-primary" style="margin-top: 100px;">Registrar usuarios</h2>
-                <p>Realiza el registro de productos llenando los siguientes datos</p>
+                <p>Realiza el registro llenando los siguientes datos</p>
             </div>
             {!! Form::open(['url'=>'/usuarios']) !!}
                 <div class="form-group mb-3">{!! Form::label ('ap_pat','Apellido Paterno', ['class' => 'form-label']) !!}{!! Form::text('ap_pat', null, ['class' => 'form-control', 'placeholder' => 'Ingresa apellido paterno', 'required' => 'required', 'title' => 'Debes ingresar el apellido paterno']) !!}</div>
