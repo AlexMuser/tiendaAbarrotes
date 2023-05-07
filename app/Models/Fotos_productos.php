@@ -9,7 +9,7 @@ class Fotos_productos extends Model
 {
     protected $table = 'fotos_productos';
 
-    protected $fillable = ['ruta','status'];
+    protected $fillable = ['ruta','status','id_producto'];
 
     public function productos(){
         return $this->belongsTo('App\Models\Productos', 'id_producto', 'id');

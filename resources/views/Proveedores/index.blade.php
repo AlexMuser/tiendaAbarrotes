@@ -26,15 +26,15 @@
     <div class="container-fluid" style="margin-top: 28px;width: 1255.6px;">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-6">
-                <h3 class="text-dark mb-4">Tiendas</h3>
+                <h3 class="text-dark mb-4">Proveedores</h3>
             </div>
-            <div class="col-12 col-sm-6 col-md-6 text-end" style="margin-bottom: 30px;"><a class="btn btn-primary" role="button" href="{!!  asset('tiendas/create')   !!}">&nbsp;Agregar cliente</a></div>
+            <div class="col-12 col-sm-6 col-md-6 text-end" style="margin-bottom: 30px;"><a class="btn btn-primary" role="button" href="{!!  asset('proveedores/create')   !!}">&nbsp;Agregar proveedor</a></div>
         </div>
         <div class="card" id="TableSorterCard">
             <div class="card-header py-3">
                 <div class="row align-items-center table-topper">
                     <div class="col-12 col-sm-5 col-md-6 text-start" style="margin: 0px;padding: 5px 15px;">
-                        <p class="fw-bold text-primary m-0">Tiendas registrados</p>
+                        <p class="fw-bold text-primary m-0">Proveedores registrados</p>
                     </div>
                 </div>
             </div>
@@ -46,26 +46,27 @@
                                 <tr>
                                     <th class="text-center">ID</th>
                                     <th class="text-center">Nombre</th>
-                                    <th class="text-center">Ubicación</th>
-                                    <th class="text-center">STATUS</th>
+                                    <th class="text-center">Dia de visita</th>
+                                    <th class="text-center">Teléfono</th>
+                                    <th class="text-center">ID de tienda</th>
                                     <th class="text-center filter-false sorter-false">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
                                 <tr>
-                                    @foreach($tiendas as $tienda)
-                                <tr>
-                                    <td>{!! $tienda->id !!}</td>
-                                    <td>{!! $tienda->nombre !!}</td>
-                                    <td>{!! $tienda->ubicacion !!}</td>
-                                    <td>{!! $tienda->status !!}</td>
-                                    <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a class="btn btnMaterial btn-flat primary semicircle" role="button" href="#"><i class="far fa-eye"></i></a>
-                                        <a class="btn btnMaterial btn-flat success semicircle" role="button" href="{!! 'tiendas/'.$tienda->id.'/edit' !!}"><i class="fas fa-pen"></i></a>
-                                        {!! Form::open(['method' => 'DELETE' , 'url' => '/tiendas/'.$tienda->id]) !!}
-                                        {!! Form::submit('Eliminar', ['class' => 'btn btnMaterial btn-flat accent btnNoBorders checkboxHover', 'style' => 'margin-left: 5px;']) !!}
-                                        {!! Form::close() !!}
-                                </tr>
-                                @endforeach
+                                    @foreach($proveedores as $proveedor)
+                                    <tr>
+                                        <td>{!! $proveedor->id !!}</td>
+                                        <td>{!! $proveedor->nombre !!}</td>
+                                        <td>{!! $proveedor->dia_visita !!}</td>
+                                        <td>{!! $proveedor->telefono !!}</td>
+                                        <td>{!! $proveedor->id_tienda !!}</td>
+                                        <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a class="btn btnMaterial btn-flat primary semicircle" role="button" href="#"><i class="far fa-eye"></i></a><a class="btn btnMaterial btn-flat success semicircle" role="button" href="{!! 'proveedores/'.$proveedor->id.'/edit' !!}"><i class="fas fa-pen"></i></a>
+                                            {!! Form::open(['method' => 'DELETE' , 'url' => '/proveedores/'.$proveedor->id]) !!}
+                                            {!! Form::submit('Eliminar', ['class' => 'btn btnMaterial btn-flat accent btnNoBorders checkboxHover', 'style' => 'margin-left: 5px;']) !!}
+                                            {!! Form::close() !!}
+                                    </tr>
+                                    @endforeach
                             </tbody>
                         </table>
                     </div>

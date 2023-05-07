@@ -9,7 +9,7 @@ class Productos extends Model
 {
     protected $table = 'productos';
 
-    protected $fillable = ['nombre','descripcion','codigo','existencia','precio_compra','precio_venta','stock','status'];
+    protected $fillable = ['nombre','descripcion','codigo','existencia','precio_compra','precio_venta','stock','status', 'id_tipo_venta','id_categoria','id_proveedor','id_tienda'];
 
     public function tipos_ventas(){
         return $this->belongsTo('App\Models\Tipos_ventas', 'id_tipo_venta', 'id');

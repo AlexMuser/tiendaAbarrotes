@@ -11,7 +11,10 @@ class Tipos_pagosController extends Controller
      */
     public function index()
     {
-        //
+        $tipos_pagos = Tipos_pagos::where('status', 1)
+                  ->orderBy('id')->get(); 
+
+        return view('Tipos_pagos.index')->with('tipos_pagos', $tipos_pagos);
     }
 
     /**

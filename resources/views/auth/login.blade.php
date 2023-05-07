@@ -52,7 +52,7 @@
                                     <button type="submit" class="btn btn-primary d-block btn-user w-100" style="background: var(--bs-btn-border-color);">Iniciar sesión</button>
                                 </form>
                                 <hr>
-                                <div class="text-center"><a class="small" href="forgot-password.html" style="color: #01703E;">¿Olvidaste tu contraseña?</a></div>
+                                <div class="text-center"><a class="small" href="" style="color: #01703E;">Enviar correo electronico</a></div>
                             </div>
                         </div>
                     </div>

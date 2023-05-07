@@ -24,7 +24,7 @@ class TiendasController extends Controller
      */
     public function create()
     {
-        //
+        return view('Tiendas.create');
     }
 
     /**
@@ -32,7 +32,18 @@ class TiendasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos = $request->all();
+
+        $validatedData = $request->validate([
+            'nombre' => 'required|unique:tiendas,nombre,NULL,id,status,1',
+        ], [
+            'nombre.unique' => 'El tipo de usuario ya se encuentra registrado',
+        ]);
+
+        $datos['status'] = "1";
+
+        Tiendas::create($datos);
+        return redirect('/tiendas');
     }
 
     /**
@@ -48,7 +59,10 @@ class TiendasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tienda = Tiendas::find($id);
+        
+        return view('tiendas.edit')
+               ->with('tienda', $tienda);
     }
 
     /**
@@ -56,7 +70,15 @@ class TiendasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $datos = $request->all();
+
+        $datos['status'] = "1";
+
+        $tienda = Tiendas::find($id);
+
+        $tienda->update($datos);
+
+        return redirect('/tiendas');
     }
 
     /**
@@ -64,6 +86,9 @@ class TiendasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tienda = Tiendas::find($id);
+        $tienda->status = 0;
+        $tienda->save();
+        return redirect('/tiendas');
     }
 }

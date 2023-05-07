@@ -31,7 +31,7 @@ class AuthController extends Controller
             // Autenticación exitosa
             return redirect()->intended('/usuarios');
         }else{
-            dd($credentials);
+            return view('auth.login');
         }
 
         // Autenticación fallida

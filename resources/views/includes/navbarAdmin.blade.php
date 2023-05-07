@@ -5,9 +5,12 @@
                 <li class="nav-item"><a class="nav-link" href="{{ url('/categorias') }}">Categorias</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/tiendas') }}">Tiendas</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/productos') }}">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/fotos_productos') }}">Fotos productos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/usuarios') }}">Usuarios</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/proveedores') }}">Proveedores</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/tipo_usuarios') }}">Tipo usuarios</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/tipos_ventas') }}">Tipo ventas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/tipos_pagos') }}">Tipo pagos</a></li>
             </ul>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf

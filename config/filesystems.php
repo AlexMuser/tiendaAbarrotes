@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'fotografias' => [
+            'driver' => 'local',
+            'root' => public_path('storage/fotografias'),
+        ],
+
     ],
 
     /*
