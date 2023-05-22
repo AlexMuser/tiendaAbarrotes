@@ -51,7 +51,8 @@ class Tipos_ventasController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tipos_venta = Tipos_ventas::find($id);
+        return view('Tipos_ventas.read')->with('tipos_venta', $tipos_venta);
     }
 
     /**

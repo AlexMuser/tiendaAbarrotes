@@ -42,8 +42,16 @@
                 <div class="form-group mb-3">{!! Form::label ('descripcion','Descripción', ['class' => 'form-label']) !!}{!! Form::text('descripcion', null, ['class' => 'form-control', 'placeholder' => 'Ingresa la descripción', 'required' => 'required', 'title' => 'Debes ingresar la descripción']) !!}</div>
                 <div class="form-group mb-3">{!! Form::label ('codigo','Codigo', ['class' => 'form-label']) !!}{!! Form::number('codigo', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el codigo', 'required' => 'required', 'title' => 'Debes ingresar el codigo']) !!}</div>
                 <div class="form-group mb-3">{!! Form::label ('existencia','Numero de existencias', ['class' => 'form-label']) !!}{!! Form::number('existencia', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el numero de existencias', 'required' => 'required', 'title' => 'Debes ingresar el numero de existencias']) !!}</div>
-                <div class="form-group mb-3">{!! Form::label ('precio_compra','Precio de compra $', ['class' => 'form-label']) !!}{!! Form::number('precio_compra', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el precio de compra', 'required' => 'required', 'title' => 'Debes ingresar el precio de compra']) !!}</div>
-                <div class="form-group mb-3">{!! Form::label ('precio_venta','Precio de venta $', ['class' => 'form-label']) !!}{!! Form::number('precio_venta', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el precio de venta', 'required' => 'required', 'title' => 'Debes ingresar el precio de venta']) !!}</div>
+                <div class="form-group mb-3">
+                    {!! Form::label('precio_compra', 'Precio de compra $', ['class' => 'form-label']) !!}
+                    {!! Form::text('precio_compra', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el precio de compra', 'required' => 'required', 'pattern' => '[0-9]+(\.[0-9]{1,2})?', 'title' => 'Debes ingresar un valor numérico con hasta 2 decimales']) !!}
+                </div>
+                
+                <div class="form-group mb-3">
+                    {!! Form::label('precio_venta', 'Precio de venta $', ['class' => 'form-label']) !!}
+                    {!! Form::text('precio_venta', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el precio de venta', 'required' => 'required', 'pattern' => '[0-9]+(\.[0-9]{1,2})?', 'title' => 'Debes ingresar un valor numérico con hasta 2 decimales']) !!}
+                </div>
+                
                 <div class="form-group mb-3">{!! Form::label ('stock','Cantidad en stock', ['class' => 'form-label']) !!}{!! Form::number('stock', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el stock', 'required' => 'required', 'title' => 'Debes ingresar el stock']) !!}</div>
                 <div class="form-group mb-3">
                     <label class="form-label" for="tipos_ventas">Tipo de venta</label>

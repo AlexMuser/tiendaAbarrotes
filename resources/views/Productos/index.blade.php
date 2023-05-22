@@ -91,7 +91,7 @@
                                                 <td>{!! $tienda->nombre !!}</td>
                                             @endif
                                         @endforeach
-                                        <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a class="btn btnMaterial btn-flat primary semicircle" role="button" href="#"><i class="far fa-eye"></i></a>
+                                        <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a class="btn btnMaterial btn-flat primary semicircle" role="button" href="{!! 'productos/'.$producto->id !!}"><i class="far fa-eye"></i></a>
                                         <a class="btn btnMaterial btn-flat success semicircle" role="button" href="{!! 'productos/'.$producto->id.'/edit' !!}"><i class="fas fa-pen"></i></a>
                                             {!! Form::open(['method' => 'DELETE' , 'url' => '/productos/'.$producto->id]) !!}
                                             {!! Form::submit('Eliminar', ['class' => 'btn btnMaterial btn-flat accent btnNoBorders checkboxHover', 'style' => 'margin-left: 5px;']) !!}

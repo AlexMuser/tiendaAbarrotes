@@ -55,7 +55,7 @@ class ClientesController extends Controller
         //dd($datos);
 
         Clientes::create($datos);
-        return redirect('/clientes');
+        return redirect('/puntoDeVenta');
     }
 
     /**
@@ -63,7 +63,8 @@ class ClientesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $cliente = Clientes::find($id);
+        return view('clientes.read')->with('cliente', $cliente);
     }
 
     /**

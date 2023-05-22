@@ -11,6 +11,9 @@
                 <li class="nav-item"><a class="nav-link" href="{{ url('/tipo_usuarios') }}">Tipo usuarios</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/tipos_ventas') }}">Tipo ventas</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/tipos_pagos') }}">Tipo pagos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/paises') }}">Pais</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/entidades') }}">Entidad</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/municipios') }}">Municipio</a></li>
             </ul>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf

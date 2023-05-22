@@ -197,6 +197,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -217,6 +219,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
+        'PDF' => 'Barryvdh\DomPDF\Facade',
 
     ])->toArray(),
 

@@ -61,7 +61,8 @@ class ProveedoresController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $proveedor = Proveedores::find($id);
+        return view('Proveedores.read')->with('proveedor', $proveedor);
     }
 
     /**

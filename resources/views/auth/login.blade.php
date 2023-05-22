@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -18,9 +17,31 @@
     <link rel="stylesheet" href="{{  asset('estilo/css/fonts/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{  asset('estilo/css/fonts/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{  asset('estilo/css/fonts/fontawesome5-overrides.min.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+    <script src="{{ asset('jquery-3.6.4.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $("#loginFailedModal").modal("show");
+        });
+    </script>
 </head>
-
-<body>
+<body>   
+    <div class="modal" tabindex="-1" role="dialog" id="loginFailedModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Inicio de sesión fallido</h5>
+            </div>
+            <div class="modal-body">
+              <p>El nombre de usuario o la contraseña son incorrectos. Por favor, inténtelo de nuevo.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Cerrar" onclick="$('#loginFailedModal').modal('hide')">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>    
     <div class="d-flex d-xl-flex align-items-center align-items-xl-center" style="width: 100%;height: 100%;"></div>
     <div class="row justify-content-center">
         <div class="col-md-9 col-lg-12 col-xl-10">
@@ -52,7 +73,7 @@
                                     <button type="submit" class="btn btn-primary d-block btn-user w-100" style="background: var(--bs-btn-border-color);">Iniciar sesión</button>
                                 </form>
                                 <hr>
-                                <div class="text-center"><a class="small" href="" style="color: #01703E;">Enviar correo electronico</a></div>
+                                <div class="text-center"><a class="small" href="{{ route('form_enviar_correo') }}" style="color: #01703E;">Enviar correo electronico</a></div>
                             </div>
                         </div>
                     </div>
@@ -65,10 +86,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://geodata.solutions/includes/countrystate.js"></script>
     <script src="{{  asset('estilo/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-Ludens---1-Index-Table-with-Search--Sort-Filters.js') }}"></script>
     <script src="{{  asset('estilo/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-Ludens---Material-UI-Actions.js') }}"></script>
     <script src="{{  asset('estilo/js/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
-
 </html>

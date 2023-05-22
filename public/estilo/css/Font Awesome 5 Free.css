@@ -14,11 +14,7 @@
 @font-face {
 	font-family: 'Font Awesome 5 Free';
 	src: url(../../assets/fonts/fa-solid-900.eot) format('embedded-opentype'),
-	url(../../assets/fonts/fa-solid-900.eot) format('embedded-opentype'),
-	url(../../assets/fonts/fa-solid-900.woff2) format('woff2'),
-	url(../../assets/fonts/fa-solid-900.woff) format('woff'),
-	url(../../assets/fonts/fa-solid-900.ttf) format('truetype'),
-	url(../../assets/fonts/fa-solid-900.svg) format('svg');
+	url(../../assets/fonts/fa-solid-900.eot) format('embedded-opentype');
 	font-weight: 900;
 	font-style: normal;
 	font-display: auto;

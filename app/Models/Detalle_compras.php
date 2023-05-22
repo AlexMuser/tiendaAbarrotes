@@ -9,7 +9,7 @@ class Detalle_compras extends Model
 {
     protected $table = 'detalle_compras';
 
-    protected $fillable = ['cantidad','precio_compra','precio_venta','status'];
+    protected $fillable = ['cantidad','precio_compra','precio_venta','status', 'id_compra', 'id_producto'];
 
     public function compras(){
         return $this->belongsTo('App\Models\Compras', 'id_compra', 'id');

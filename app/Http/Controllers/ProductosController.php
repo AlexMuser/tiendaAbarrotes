@@ -98,7 +98,8 @@ class ProductosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $producto = Productos::find($id);
+        return view('Productos.read')->with('producto', $producto);
     }
 
     /**
@@ -156,6 +157,9 @@ class ProductosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $producto = productos::find($id);
+        $producto->status = 0;
+        $producto->save();
+        return redirect('/productos');
     }
 }

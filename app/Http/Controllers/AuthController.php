@@ -27,17 +27,14 @@ class AuthController extends Controller
     {
         $credentials = $request->only('username', 'password');
 
+        $credentials['status'] = 1;
+
         if (Auth::attempt($credentials)) {
             // Autenticación exitosa
             return redirect()->intended('/usuarios');
-        }else{
-            return view('auth.login');
         }
-
-        // Autenticación fallida
-        return redirect()->back()->withErrors([
-            'username' => 'Credenciales incorrectas',
-        ]);
+        session()->flash('loginFailed', true);
+        return redirect()->back();
     }
 
     /**

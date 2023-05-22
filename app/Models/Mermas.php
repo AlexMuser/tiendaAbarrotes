@@ -9,7 +9,7 @@ class Mermas extends Model
 {
     protected $table = 'mermas';
 
-    protected $fillable = ['fecha','total','status'];
+    protected $fillable = ['fecha','total','status', 'id_tienda', 'id_usuario'];
 
     public function tiendas(){
         return $this->belongsTo('App\Models\Tiendas', 'id_tienda', 'id');

@@ -28,7 +28,7 @@
             <div class="col-12 col-sm-6 col-md-6">
                 <h3 class="text-dark mb-4">Tiendas</h3>
             </div>
-            <div class="col-12 col-sm-6 col-md-6 text-end" style="margin-bottom: 30px;"><a class="btn btn-primary" role="button" href="{!!  asset('tiendas/create')   !!}">&nbsp;Agregar cliente</a></div>
+            <div class="col-12 col-sm-6 col-md-6 text-end" style="margin-bottom: 30px;"><a class="btn btn-primary" role="button" href="{!!  asset('tiendas/create')   !!}">&nbsp;Agregar tienda</a></div>
         </div>
         <div class="card" id="TableSorterCard">
             <div class="card-header py-3">
@@ -46,6 +46,9 @@
                                 <tr>
                                     <th class="text-center">ID</th>
                                     <th class="text-center">Nombre</th>
+                                    <th class="text-center">Pais</th>
+                                    <th class="text-center">Entidad</th>
+                                    <th class="text-center">Municipio</th>
                                     <th class="text-center">Ubicación</th>
                                     <th class="text-center">STATUS</th>
                                     <th class="text-center filter-false sorter-false">Acciones</th>
@@ -57,9 +60,12 @@
                                 <tr>
                                     <td>{!! $tienda->id !!}</td>
                                     <td>{!! $tienda->nombre !!}</td>
+                                    <td>{!! $tienda->id_pais !!}</td>
+                                    <td>{!! $tienda->id_entidad !!}</td>
+                                    <td>{!! $tienda->id_municipio !!}</td>
                                     <td>{!! $tienda->ubicacion !!}</td>
                                     <td>{!! $tienda->status !!}</td>
-                                    <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a class="btn btnMaterial btn-flat primary semicircle" role="button" href="#"><i class="far fa-eye"></i></a>
+                                    <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a class="btn btnMaterial btn-flat primary semicircle" role="button" href="{!! 'tiendas/'.$tienda->id !!}"><i class="far fa-eye"></i></a>
                                         <a class="btn btnMaterial btn-flat success semicircle" role="button" href="{!! 'tiendas/'.$tienda->id.'/edit' !!}"><i class="fas fa-pen"></i></a>
                                         {!! Form::open(['method' => 'DELETE' , 'url' => '/tiendas/'.$tienda->id]) !!}
                                         {!! Form::submit('Eliminar', ['class' => 'btn btnMaterial btn-flat accent btnNoBorders checkboxHover', 'style' => 'margin-left: 5px;']) !!}
@@ -73,7 +79,7 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('estilo/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ asset('estilo/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>

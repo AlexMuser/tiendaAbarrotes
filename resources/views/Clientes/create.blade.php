@@ -53,7 +53,7 @@
                 </div>
                 <hr style="margin-top: 30px;margin-bottom: 10px;">
                 <div class="form-group mb-3">&nbsp;{!! Form::submit('Guardar cliente', ['class' => 'btn btn-primary d-block w-100']) !!}</div>
-                <a href="{{ url('/clientes') }}" class="btn btn-primary d-block w-100" style="background: rgb(237,38,38);">Cancelar</a>
+                <a href="{{ url('/puntoDeVenta') }}" class="btn btn-primary d-block w-100" style="background: rgb(237,38,38);">Cancelar</a>
             {!! Form::close() !!}
         </div>
     </section>

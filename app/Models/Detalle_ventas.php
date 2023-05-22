@@ -9,7 +9,7 @@ class Detalle_ventas extends Model
 {
     protected $table = 'detalle_ventas';
 
-    protected $fillable = ['cantidad','precio_compra','precio_venta','status'];
+    protected $fillable = ['cantidad','precio_compra','precio_venta','status', 'id_venta', 'id_producto'];
 
     public function ventas(){
         return $this->belongsTo('App\Models\Ventas', 'id_venta', 'id');

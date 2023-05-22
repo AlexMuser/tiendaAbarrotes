@@ -25,7 +25,7 @@
     <section class="clean-block clean-form dark h-100">
         <div class="container" style="margin-top: -59px;">
             <div class="block-heading" style="padding-top: 0px;">
-                <h2 class="text-primary" style="margin-top: 100px;">Registrar tipo de usuario</h2>
+                <h2 class="text-primary" style="margin-top: 100px;">Registrar tipo de venta</h2>
                 <p>Realiza el registro llenando los siguientes datos</p>
             </div>
                 {!! Form::open([ 'method' => 'PATCH' , 'url'=>'/tipos_ventas/'.$tipo_venta->id]) !!}

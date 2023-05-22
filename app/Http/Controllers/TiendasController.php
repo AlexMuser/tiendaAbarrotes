@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Tiendas;
+use App\Models\Paises;
+use App\Models\Entidades;
+use App\Models\Municipios;
 
 class TiendasController extends Controller
 {
@@ -24,7 +27,19 @@ class TiendasController extends Controller
      */
     public function create()
     {
-        return view('Tiendas.create');
+        $paises = Paises::where('status', 1)
+                ->select('id','nombre')
+                ->orderBy('nombre')->get();
+        $entidades = Entidades::where('status', 1)
+                ->select('id','nombre')
+                ->orderBy('nombre')->get();
+        $municipios = Municipios::where('status', 1)
+                ->select('id','nombre')
+                ->orderBy('nombre')->get();
+        return view('Tiendas.create')
+            ->with('paises',$paises)
+            ->with('entidades',$entidades)
+            ->with('municipios',$municipios);
     }
 
     /**
@@ -51,7 +66,8 @@ class TiendasController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tienda = Tiendas::find($id);
+        return view('Tiendas.read')->with('tienda', $tienda);
     }
 
     /**
@@ -60,9 +76,22 @@ class TiendasController extends Controller
     public function edit(string $id)
     {
         $tienda = Tiendas::find($id);
+
+        $paises = Paises::where('status', 1)
+                ->select('id','nombre')
+                ->orderBy('nombre')->get();
+        $entidades = Entidades::where('status', 1)
+                ->select('id','nombre')
+                ->orderBy('nombre')->get();
+        $municipios = Municipios::where('status', 1)
+                ->select('id','nombre')
+                ->orderBy('nombre')->get();
         
         return view('tiendas.edit')
-               ->with('tienda', $tienda);
+            ->with('tienda', $tienda)
+            ->with('paises',$paises)
+            ->with('entidades',$entidades)
+            ->with('municipios',$municipios);
     }
 
     /**

@@ -9,7 +9,7 @@ class Ventas extends Model
 {
     protected $table = 'ventas';
 
-    protected $fillable = ['fecha','total','total_pagado','status'];
+    protected $fillable = ['fecha','total','total_pagado','status','id_cliente','id_tipo_pago','id_usuario', 'id_tienda'];
 
     public function clientes(){
         return $this->belongsTo('App\Models\Clientes', 'id_cliente', 'id');

@@ -9,7 +9,7 @@ class Compras extends Model
 {
     protected $table = 'compras';
 
-    protected $fillable = ['fecha','total','status'];
+    protected $fillable = ['fecha','total','status', 'id_tienda', 'id_proveedor', 'id_usuario'];
 
     public function tiendas(){
         return $this->belongsTo('App\Models\Tiendas', 'id_tienda', 'id');

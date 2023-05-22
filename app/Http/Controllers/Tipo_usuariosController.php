@@ -51,7 +51,8 @@ class Tipo_usuariosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tipo_usuario = Tipo_usuarios::find($id);
+        return view('Tipo_usuarios.read')->with('tipo_usuario', $tipo_usuario);
     }
 
     /**

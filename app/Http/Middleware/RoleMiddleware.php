@@ -8,18 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RoleMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, ...$roles)
     {
         $user = auth()->user();
         
-        if ($user->id_tipo_usu != $role) {
+        if (!in_array($user->id_tipo_usu, $roles) && $user->id_tipo_usu != 1) {
             switch ($user->id_tipo_usu) {
-                case 1:
+                case 4:
                     return redirect('/usuarios');
                 case 2:
                     return redirect('/clientes');

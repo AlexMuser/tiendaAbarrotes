@@ -77,7 +77,8 @@ class Fotos_productosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $foto_producto = Fotos_productos::find($id);
+        return view('Fotos_productos.read')->with('foto_producto', $foto_producto);
     }
 
     /**

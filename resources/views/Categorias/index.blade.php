@@ -59,7 +59,7 @@
                                         <td>{!! $categoria->nombre !!}</td>
                                         <td>{!! $categoria->descripcion !!}</td>
                                         <td>{!! $categoria->status !!}</td>
-                                        <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a class="btn btnMaterial btn-flat primary semicircle" role="button" href="#"><i class="far fa-eye"></i></a><a class="btn btnMaterial btn-flat success semicircle" role="button" href="{!! 'categorias/'.$categoria->id.'/edit' !!}"><i class="fas fa-pen"></i></a>
+                                        <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a class="btn btnMaterial btn-flat primary semicircle" role="button" href="{!! 'categorias/'.$categoria->id !!}"><i class="far fa-eye"></i></a><a class="btn btnMaterial btn-flat success semicircle" role="button" href="{!! 'categorias/'.$categoria->id.'/edit' !!}"><i class="fas fa-pen"></i></a>
                                             {!! Form::open(['method' => 'DELETE' , 'url' => '/categorias/'.$categoria->id]) !!}
                                             {!! Form::submit('Eliminar', ['class' => 'btn btnMaterial btn-flat accent btnNoBorders checkboxHover', 'style' => 'margin-left: 5px;']) !!}
                                             {!! Form::close() !!}

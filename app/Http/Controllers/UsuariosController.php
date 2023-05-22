@@ -26,10 +26,12 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        $tiendas = Tiendas::select('id','nombre')
-                  ->orderBy('nombre')->get();
-        $tipo_usuarios = Tipo_usuarios::select('id','nombre')
-                  ->orderBy('nombre')->get();
+        $tiendas = Tiendas::where('status', 1)
+                ->select('id','nombre')
+                ->orderBy('nombre')->get();
+        $tipo_usuarios = Tipo_usuarios::where('status', 1)
+                ->select('id','nombre')
+                ->orderBy('nombre')->get();
         return view('Usuarios.create')
                 ->with('tiendas',$tiendas)
                 ->with('tipo_usuarios',$tipo_usuarios);
@@ -65,7 +67,8 @@ class UsuariosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $usuario = Usuarios::find($id);
+        return view('Usuarios.read')->with('usuario', $usuario);
     }
 
     /**
