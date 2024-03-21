@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',80);
             $table->string('ubicacion',80);
+            $table->foreignId('id_pais')->references('id')->on('paises');
+            $table->foreignId('id_municipio')->references('id')->on('municipios');
+            $table->foreignId('id_entidad')->references('id')->on('entidades');
             $table->integer('status');
             $table->timestamps();
         });

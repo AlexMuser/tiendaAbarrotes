@@ -16,12 +16,18 @@ class tabla_tiendas extends Seeder
             'nombre' => 'Tienda osiris',
             'ubicacion' => 'Toluca, Estado de México',
             'status' => 1,
+            'id_pais' => 4,
+            'id_entidad' => 15,
+            'id_municipio' => 1,
         ]);
 
         \DB::table('tiendas')->insert([
             'nombre' => 'Tienda Aguilar',
             'ubicacion' => 'Tenancingo, Estado de México',
             'status' => 1,
+            'id_pais' => 4,
+            'id_entidad' => 15,
+            'id_municipio' => 2,
         ]);
     }
 }

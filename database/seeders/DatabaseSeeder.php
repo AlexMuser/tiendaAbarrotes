@@ -18,5 +18,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call(tabla_categorias::class);
+        $this->call(tabla_paises::class);
+        $this->call(tabla_entidades::class);
+        $this->call(tabla_municipios::class);
+        $this->call(tabla_tiendas::class);
+        $this->call(tabla_tipo_usuarios::class);
+        $this->call(tabla_tipos_pagos::class);
+        $this->call(tabla_tipos_ventas::class);
+        $this->call(tabla_usuarios::class);
     }
 }
